@@ -526,6 +526,22 @@
     app.appendChild(wrap)
   }
 
+  function rerenderMcPagePreservingScroll(mode) {
+    var pageScrollTop = window.pageYOffset || document.documentElement.scrollTop || 0
+    var cardScrollPositions = Array.prototype.map.call(
+      app.querySelectorAll(".app-split-pane .rv-card"),
+      function (card) { return card.scrollTop }
+    )
+    mcPage(mode)
+    window.requestAnimationFrame(function () {
+      var cards = app.querySelectorAll(".app-split-pane .rv-card")
+      cardScrollPositions.forEach(function (scrollTop, index) {
+        if (cards[index]) cards[index].scrollTop = scrollTop
+      })
+      window.scrollTo(0, pageScrollTop)
+    })
+  }
+
   function clampIndex(value, length) {
     var number = Number(value) || 0
     return Math.max(0, Math.min(number, Math.max(0, length - 1)))
@@ -583,7 +599,7 @@
           clearSelections(question, parts.length, mode)
           delete state.checked[checkedKey(question, mode)]
           saveState()
-          mcPage(mode)
+          rerenderMcPagePreservingScroll(mode)
         }))
         card.appendChild(retry)
       }
@@ -705,7 +721,7 @@
 
       control.addEventListener("click", function () {
         setSelection(question, partIndex, mode, [optionKey])
-        mcPage(mode)
+        rerenderMcPagePreservingScroll(mode)
       })
       options.appendChild(control)
     })
