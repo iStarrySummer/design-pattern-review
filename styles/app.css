@@ -14,7 +14,7 @@ summary { -webkit-tap-highlight-color: transparent; }
 .app-header__inner,
 .app-main {
   width: calc(100% - 32px);
-  max-width: 1440px;
+  max-width: none;
   margin: 0 auto;
 }
 
@@ -118,15 +118,19 @@ summary { -webkit-tap-highlight-color: transparent; }
   text-align: right;
 }
 
-.app-prep-progress { max-width: 560px; }
+.app-prep-progress { width: 100%; }
 
 .app-prep-list {
   display: grid;
   gap: var(--space-4);
-  max-width: 880px;
+  width: 100%;
 }
 
-.app-prep-section { padding: var(--space-4); }
+.app-prep-section {
+  width: 100%;
+  max-width: none;
+  padding: var(--space-4);
+}
 .app-prep-section summary { cursor: pointer; }
 .app-prep-section__body { padding-top: var(--space-3); }
 .app-prep-section__body ul { margin: 0; padding-left: 20px; }
