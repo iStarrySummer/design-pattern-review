@@ -40,9 +40,14 @@
     return String(value || "").trim().replace(/\s+/g, "")
   }
 
+  function isValidStudentId(value) {
+    return /^\d{10}$/.test(normalizeStudentId(value))
+  }
+
   function readStudentId() {
     try {
-      return normalizeStudentId(localStorage.getItem(activeStudentKey))
+      var studentId = normalizeStudentId(localStorage.getItem(activeStudentKey))
+      return isValidStudentId(studentId) ? studentId : ""
     } catch (error) {
       return ""
     }
@@ -64,19 +69,12 @@
 
   function writeStudentId(value) {
     var studentId = normalizeStudentId(value)
-    if (!studentId) return false
+    if (!isValidStudentId(studentId)) return false
     try {
+      var boundStudentId = normalizeStudentId(localStorage.getItem(activeStudentKey))
+      if (isValidStudentId(boundStudentId) && boundStudentId !== studentId) return false
       claimLegacyState(studentId)
       localStorage.setItem(activeStudentKey, studentId)
-      return true
-    } catch (error) {
-      return false
-    }
-  }
-
-  function clearStudentId() {
-    try {
-      localStorage.removeItem(activeStudentKey)
       return true
     } catch (error) {
       return false
@@ -162,7 +160,6 @@
   window.PRStore = {
     readStudentId: readStudentId,
     writeStudentId: writeStudentId,
-    clearStudentId: clearStudentId,
     readState: readState,
     writeState: writeState,
     resetState: resetState,

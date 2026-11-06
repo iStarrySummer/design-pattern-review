@@ -84,13 +84,6 @@
   function accountBar() {
     var bar = node("div", "app-account")
     bar.appendChild(node("span", "t-meta", "学号 " + studentId))
-    bar.appendChild(button("切换学号", "rv-btn rv-btn--secondary t-label", function () {
-      window.PRStore.clearStudentId()
-      studentId = ""
-      state = window.PRStore.readState()
-      go("#/login")
-      route()
-    }))
     return bar
   }
 
@@ -99,12 +92,16 @@
     var card = node("section", "app-login rv-card")
     card.appendChild(node("h1", "app-page-title t-display", "学号登录"))
     var form = node("form", "app-login__form")
+    form.noValidate = true
     var label = node("label", "t-label", "学号")
     var input = node("input", "app-input t-body")
     input.type = "text"
     input.inputMode = "numeric"
     input.autocomplete = "username"
-    input.placeholder = "输入学号"
+    input.maxLength = 10
+    input.minLength = 10
+    input.pattern = "[0-9]{10}"
+    input.placeholder = "输入10位学号"
     input.setAttribute("aria-label", "学号")
     label.appendChild(input)
     form.appendChild(label)
@@ -116,8 +113,8 @@
     form.addEventListener("submit", function (event) {
       event.preventDefault()
       var value = String(input.value || "").trim()
-      if (!/^\d{4,20}$/.test(value)) {
-        message.textContent = "请输入4至20位数字学号"
+      if (!/^\d{10}$/.test(value)) {
+        message.textContent = "请输入10位数字学号"
         input.focus()
         return
       }
