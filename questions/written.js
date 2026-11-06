@@ -519,8 +519,8 @@ window.REVIEW_WRITTEN = [
         "source": "04-FactoryMethod模式.md 第208行"
       },
       {
-        "text": "这样当我们新增一种parser的时候，只需要新增一个实现了IRuleConfigParserFactory接口的Factory类即可。",
-        "source": "197254.md 第205行"
+        "text": "在 Factory Method 模式中，父类决定实例的生成方式，但并不决定所要生成的具体的类，具体的处理全部交给子类负责。",
+        "source": "04-FactoryMethod模式.md 第17行"
       }
     ],
     "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/04-FactoryMethod模式.md"
@@ -855,8 +855,8 @@ window.REVIEW_WRITTEN = [
     ],
     "quotes": [
       {
-        "text": "浅拷贝和深拷贝的区别在于，浅拷贝只会复制图中的索引（散列表），不会复制数据（SearchWord对象）本身。",
-        "source": "200786.md 第155行"
+        "text": "在进行复制时，原来实例中的字段的值也会被复制到新的实例中。",
+        "source": "06-Prototype模式.md 第132行"
       },
       {
         "text": "(9) 只有实现了 Serializable 接口的类的对象才能写入流中。",
@@ -956,8 +956,8 @@ window.REVIEW_WRITTEN = [
     ],
     "quotes": [
       {
-        "text": "有饿汉式，对应的，就有懒汉式。懒汉式相对于饿汉式的优势是支持延迟加载。",
-        "source": "194035.md 第227行"
+        "text": "程序运行后，在第一次调用 getInstance 方法时，Singleton 类会被初始化。也就是在这个时候，static 字段 singleton 被初始化，生成了唯一的一个实例。",
+        "source": "05-Singleton模式.md 第142行"
       },
       {
         "text": "Singleton 角色中有一个返回唯一实例的 static 方法。该方法总是会返回同一个实例。",
@@ -1679,8 +1679,8 @@ window.REVIEW_WRITTEN = [
     ],
     "quotes": [
       {
-        "text": "其中，类适配器使用继承关系来实现，对象适配器使用组合关系来实现。",
-        "source": "205912.md 第13行"
+        "text": "在类适配器模式中，Adapter 角色通过继承来使用 Adaptee 角色，而在对象适配器模式中，Adapter 角色通过委托来使用 Adaptee 角色。",
+        "source": "02-Adapter模式.md 第227行"
       },
       {
         "text": "使用 Adaptee 角色的方法来满足 Target 角色的需求，这是 Adapter 模式的目的，也是 Adapter 角色的作用。",
@@ -1799,8 +1799,8 @@ window.REVIEW_WRITTEN = [
         "source": "09-Bridge模式.md 第297行"
       },
       {
-        "text": "一个类存在两个（或多个）独立变化的维度，我们通过组合的方式，让这两个（或多个）维度可以独立进行扩展。",
-        "source": "202786.md 第15行"
+        "text": "因此，我们需要将“类的功能层次结构”与“类的实现层次结构”分离为两个独立的类层次结构。",
+        "source": "09-Bridge模式.md 第93行"
       }
     ],
     "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/09-Bridge模式.md"
@@ -4179,8 +4179,8 @@ window.REVIEW_WRITTEN = [
     ],
     "quotes": [
       {
-        "text": "模板方法模式(Template Method Pattern): 定义一个操作中算法的框架, 而将一些步骤延迟到子类中。",
-        "source": "A-常用设计模式的定义及结构图.md 第363行"
+        "text": "像这样在父类中定义处理流程的框架，在子类中实现具体处理的模式就称为 Template Method 模式。",
+        "source": "03-TemplateMethod模式.md 第27行"
       },
       {
         "text": "Factory Method 模式是将 Template Method 模式用于生成实例的一个典型例子。",
@@ -4784,8 +4784,8 @@ window.REVIEW_WRITTEN = [
         "source": "09-2-行为型设计模式-参考答案及习题解析.md 第283行"
       },
       {
-        "text": "迭代器模式将集合对象的遍历操作从集合类中拆分出来，放到迭代器类中，让两者的职责更加单一",
-        "source": "219290.md 第15行"
+        "text": "Iterator 模式用于在数据集合中按照顺序遍历集合。",
+        "source": "01-Iterator模式.md 第40行"
       }
     ],
     "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/01-Iterator模式.md"
@@ -4887,8 +4887,8 @@ window.REVIEW_WRITTEN = [
         "source": "09-2-行为型设计模式-参考答案及习题解析.md 第395行"
       },
       {
-        "text": "通过引入中介这个中间层，将一组对象之间的交互关系（或者说依赖关系）从多对多（网状关系）转换为一对多（星状关系）",
-        "source": "226710.md 第19行"
+        "text": "即不让各个对象之间互相通信，而是增加一个仲裁者角色，让他们各自与仲裁者通信。",
+        "source": "16-Mediator模式.md 第87行"
       }
     ],
     "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/16-Mediator模式.md"

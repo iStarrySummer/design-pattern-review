@@ -43,5 +43,6 @@ window.REVIEW_MATERIAL_LINKS = {
   "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/20-Flyweight模式.md": "materials/illustrated-design-patterns/docs/20-Flyweight模式.md",
   "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/21-Proxy模式.md": "materials/illustrated-design-patterns/docs/21-Proxy模式.md",
   "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/22-Command模式.md": "materials/illustrated-design-patterns/docs/22-Command模式.md",
-  "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/23-Interpreter模式.md": "materials/illustrated-design-patterns/docs/23-Interpreter模式.md"
+  "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/23-Interpreter模式.md": "materials/illustrated-design-patterns/docs/23-Interpreter模式.md",
+  "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/D-设计模式Q&A.md": "materials/illustrated-design-patterns/docs/D-设计模式Q&A.md"
 }

@@ -1011,16 +1011,16 @@ window.REVIEW_MULTIPLE_CHOICE = [
     "memory": "设计模式的核心价值是复用成功的设计经验，不是提速，也不是减少对象",
     "quotes": [
       {
-        "text": "设计模式是针对软件开发中经常遇到的一些设计问题，总结出来的一套解决方案或者设计思路。",
-        "source": "160991.md 第38行"
+        "text": "本来设计模式就是开发人员对反复遇到的问题总结出来的解决方法。",
+        "source": "D-设计模式Q&A.md 第50行"
       }
     ],
-    "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/design-pattern-books-master/docs/160991.md",
-    "lessonTitle": "03-面向对象、设计原则与设计模式的关系.md",
+    "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/D-设计模式Q&A.md",
+    "lessonTitle": "D-设计模式Q&A.md",
     "lessonLinks": [
       {
         "title": "设计模式的复用价值",
-        "path": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/design-pattern-books-master/docs/160991.md"
+        "path": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/D-设计模式Q&A.md"
       }
     ]
   },
@@ -1067,12 +1067,12 @@ window.REVIEW_MULTIPLE_CHOICE = [
         "source": "D-设计模式Q&A.md 第52行"
       }
     ],
-    "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/design-pattern-books-master/docs/160991.md",
-    "lessonTitle": "03-面向对象、设计原则与设计模式的关系.md",
+    "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/D-设计模式Q&A.md",
+    "lessonTitle": "D-设计模式Q&A.md",
     "lessonLinks": [
       {
         "title": "设计模式的设计简化作用",
-        "path": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/design-pattern-books-master/docs/160991.md"
+        "path": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/D-设计模式Q&A.md"
       }
     ]
   },
@@ -1115,16 +1115,16 @@ window.REVIEW_MULTIPLE_CHOICE = [
     "memory": "相似问题用相同解法，这就是设计模式的本质",
     "quotes": [
       {
-        "text": "设计模式是针对软件开发中经常遇到的一些设计问题，总结出来的一套解决方案或者设计思路。",
-        "source": "160991.md 第38行"
+        "text": "设计模式是指针对软件开发过程中重复发生的问题的解决办法。",
+        "source": "D-设计模式Q&A.md 第17行"
       }
     ],
-    "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/design-pattern-books-master/docs/160991.md",
-    "lessonTitle": "03-面向对象、设计原则与设计模式的关系.md",
+    "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/D-设计模式Q&A.md",
+    "lessonTitle": "D-设计模式Q&A.md",
     "lessonLinks": [
       {
         "title": "相似问题的方案复用",
-        "path": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/design-pattern-books-master/docs/160991.md"
+        "path": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/D-设计模式Q&A.md"
       }
     ]
   },
@@ -1411,8 +1411,8 @@ window.REVIEW_MULTIPLE_CHOICE = [
     "memory": "三种工厂从简单到复杂：简单工厂 → 工厂方法 → 抽象工厂；工厂方法退化是简单工厂",
     "quotes": [
       {
-        "text": "工厂方法模式(Factory Method Pattern): 定义一个用于创建对象的接口,但是让子类决定将哪一个类实例化。工厂方法模式让一个类的实例化延迟到其子类。",
-        "source": "A-常用设计模式的定义及结构图.md 第29行"
+        "text": "在 Factory Method 模式中，父类决定实例的生成方式，但并不决定所要生成的具体的类，具体的处理全部交给子类负责。",
+        "source": "04-FactoryMethod模式.md 第17行"
       }
     ],
     "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/04-FactoryMethod模式.md",
@@ -1774,8 +1774,8 @@ window.REVIEW_MULTIPLE_CHOICE = [
     "memory": "一个创建者要造一整套配套对象，并且要能加新套系，就选抽象工厂",
     "quotes": [
       {
-        "text": "抽象工厂模式(Abstract Factory Pattern): 提供一个创建一系列相关或相互依赖对象的接口, 而无须指定它们具体的类。",
-        "source": "A-常用设计模式的定义及结构图.md 第43行"
+        "text": "在 Abstract Factory 模式中将会出现抽象工厂，它会将抽象零件组装为抽象产品。也就是说，我们并不关心零件的具体实现，而是只关心接口（API）。",
+        "source": "08-AbstractFactory模式.md 第25行"
       }
     ],
     "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/08-AbstractFactory模式.md",
@@ -1958,8 +1958,8 @@ window.REVIEW_MULTIPLE_CHOICE = [
     "memory": "看到“复杂对象”“一步步构建”，选建造者",
     "quotes": [
       {
-        "text": "建造者模式(Builder Pattern): 将一个复杂对象的构建与它的表示分离, 使得同样的构建过程可以创建不同的表示。",
-        "source": "A-常用设计模式的定义及结构图.md 第53行"
+        "text": "在本章中，我们将要学习用于组装具有复杂结构的实例的 Builder 模式。",
+        "source": "07-Builder模式.md 第17行"
       }
     ],
     "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/07-Builder模式.md",
@@ -2097,8 +2097,8 @@ window.REVIEW_MULTIPLE_CHOICE = [
     "memory": "看到“根据已有对象快速创建新对象”，选原型",
     "quotes": [
       {
-        "text": "原型模式(Prototype Pattern): 使用原型实例指定待创建对象的类型,并且通过复制这个原型来创建新的对象。",
-        "source": "A-常用设计模式的定义及结构图.md 第75行"
+        "text": "在本章中，我们将要学习不根据类来生成实例，而是根据实例来生成新实例的 Prototype 模式。",
+        "source": "06-Prototype模式.md 第35行"
       }
     ],
     "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/06-Prototype模式.md",
@@ -2188,8 +2188,8 @@ window.REVIEW_MULTIPLE_CHOICE = [
     "memory": "单例的“单”指实例只有一个，不是方法或属性只有一个",
     "quotes": [
       {
-        "text": "单例模式(Singleton Pattern): 确保一个类只有一个实例,并提供一个全局访问点来访问这个唯一实例。",
-        "source": "A-常用设计模式的定义及结构图.md 第89行"
+        "text": "像这样的确保只生成一个实例的模式被称作 Singleton 模式。",
+        "source": "05-Singleton模式.md 第23行"
       }
     ],
     "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/05-Singleton模式.md",
@@ -2277,8 +2277,8 @@ window.REVIEW_MULTIPLE_CHOICE = [
     "memory": "单例三要点：一个实例、自己创建、自己提供",
     "quotes": [
       {
-        "text": "单例模式(Singleton Pattern): 确保一个类只有一个实例,并提供一个全局访问点来访问这个唯一实例。",
-        "source": "A-常用设计模式的定义及结构图.md 第89行"
+        "text": "像这样的确保只生成一个实例的模式被称作 Singleton 模式。",
+        "source": "05-Singleton模式.md 第23行"
       }
     ],
     "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/05-Singleton模式.md",
@@ -2374,8 +2374,8 @@ window.REVIEW_MULTIPLE_CHOICE = [
     "memory": "“一系列相关或相互依赖的对象”对应抽象工厂",
     "quotes": [
       {
-        "text": "抽象工厂模式(Abstract Factory Pattern): 提供一个创建一系列相关或相互依赖对象的接口, 而无须指定它们具体的类。",
-        "source": "A-常用设计模式的定义及结构图.md 第43行"
+        "text": "在 Abstract Factory 模式中将会出现抽象工厂，它会将抽象零件组装为抽象产品。也就是说，我们并不关心零件的具体实现，而是只关心接口（API）。",
+        "source": "08-AbstractFactory模式.md 第25行"
       }
     ],
     "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/08-AbstractFactory模式.md",
@@ -2418,8 +2418,8 @@ window.REVIEW_MULTIPLE_CHOICE = [
     "memory": "“构建与表示分离”“同样的构建过程创建不同表示”对应建造者",
     "quotes": [
       {
-        "text": "建造者模式(Builder Pattern): 将一个复杂对象的构建与它的表示分离, 使得同样的构建过程可以创建不同的表示。",
-        "source": "A-常用设计模式的定义及结构图.md 第53行"
+        "text": "在本章中，我们将要学习用于组装具有复杂结构的实例的 Builder 模式。",
+        "source": "07-Builder模式.md 第17行"
       }
     ],
     "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/07-Builder模式.md",
@@ -2507,8 +2507,8 @@ window.REVIEW_MULTIPLE_CHOICE = [
     "memory": "“树形结构”“部分-整体”“一致对待单个和组合对象”就是组合模式",
     "quotes": [
       {
-        "text": "组合模式(Composite Pattern): 组合多个对象形成树形结构以表示具有部分-整体关系的层次结构。组合模式让客户端可以统一对待单个对象和组合对象。",
-        "source": "A-常用设计模式的定义及结构图.md 第143行"
+        "text": "能够使容器与内容具有一致性，创造出递归结构的模式就是 Composite 模式。",
+        "source": "11-Composite模式.md 第21行"
       }
     ],
     "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/11-Composite模式.md",
@@ -2551,8 +2551,8 @@ window.REVIEW_MULTIPLE_CHOICE = [
     "memory": "“子系统太复杂，提供一个高层接口”就是外观模式",
     "quotes": [
       {
-        "text": "外观模式定义了一个高层接口, 这个接口使得这一子系统更加容易使用。",
-        "source": "A-常用设计模式的定义及结构图.md 第175行"
+        "text": "使用 Facade 模式可以为互相关联在一起的错综复杂的类整理出高层接口（API）。其中的 Facade 角色可以让系统对外只有一个简单的接口（API）。",
+        "source": "15-Facade模式.md 第19行"
       }
     ],
     "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/15-Facade模式.md",
@@ -2595,8 +2595,8 @@ window.REVIEW_MULTIPLE_CHOICE = [
     "memory": "“不用继承，动态加职责”就是装饰模式",
     "quotes": [
       {
-        "text": "装饰模式(Decorator Pattern): 动态地给一个对象增加一些额外的职责。就扩展功能而言, 装饰模式提供了一种比使用子类更加灵活的替代方案。",
-        "source": "A-常用设计模式的定义及结构图.md 第153行"
+        "text": "像这样不断地为对象添加装饰的设计模式被称为 Decorator 模式。",
+        "source": "12-Decorator模式.md 第25行"
       }
     ],
     "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/12-Decorator模式.md",
@@ -2761,8 +2761,8 @@ window.REVIEW_MULTIPLE_CHOICE = [
     "memory": "限制数量是单例；接口转换是适配器",
     "quotes": [
       {
-        "text": "适配器模式(Adapter Pattern): 将一个类的接口转换成客户希望的另一个接口。适配器模式让那些接口不兼容的类可以一起工作。",
-        "source": "A-常用设计模式的定义及结构图.md 第107行"
+        "text": "在程序世界中，经常会存在现有的程序无法直接使用，需要做适当的变换之后才能使用的情况。这种用于填补“现有的程序”和“所需的程序”之间差异的设计模式就是Adapter模式。",
+        "source": "02-Adapter模式.md 第19行"
       }
     ],
     "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/05-Singleton模式.md",
@@ -2850,8 +2850,8 @@ window.REVIEW_MULTIPLE_CHOICE = [
     "memory": "“共享技术”“大量细粒度对象”就是享元模式",
     "quotes": [
       {
-        "text": "享元模式(Flyweight Pattern): 运用共享技术有效地支持大量细粒度对象的复用。",
-        "source": "A-常用设计模式的定义及结构图.md 第189行"
+        "text": "当需要某个实例时，并不总是通过 new 关键字来生成实例，而是尽量共用已经存在的实例。这就是 Flyweight 模式的核心内容。",
+        "source": "20-Flyweight模式.md 第29行"
       }
     ],
     "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/20-Flyweight模式.md",
@@ -2940,8 +2940,8 @@ window.REVIEW_MULTIPLE_CHOICE = [
     "memory": "Java 单继承，所以对象适配器比类适配器更灵活",
     "quotes": [
       {
-        "text": "如果Adaptee接口很多，而且Adaptee和ITarget接口定义大部分都不相同，那我们推荐使用对象适配器，因为组合结构相对于继承更加灵活。",
-        "source": "205912.md 第80行"
+        "text": "在类适配器模式中，Adapter 角色通过继承来使用 Adaptee 角色，而在对象适配器模式中，Adapter 角色通过委托来使用 Adaptee 角色。",
+        "source": "02-Adapter模式.md 第227行"
       }
     ],
     "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/02-Adapter模式.md",
@@ -2985,8 +2985,8 @@ window.REVIEW_MULTIPLE_CHOICE = [
     "memory": "“复用已有代码＋接口不一致＋不改结构”就是适配器",
     "quotes": [
       {
-        "text": "适配器模式(Adapter Pattern): 将一个类的接口转换成客户希望的另一个接口。适配器模式让那些接口不兼容的类可以一起工作。",
-        "source": "A-常用设计模式的定义及结构图.md 第107行"
+        "text": "在程序世界中，经常会存在现有的程序无法直接使用，需要做适当的变换之后才能使用的情况。这种用于填补“现有的程序”和“所需的程序”之间差异的设计模式就是Adapter模式。",
+        "source": "02-Adapter模式.md 第19行"
       }
     ],
     "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/02-Adapter模式.md",
@@ -3030,8 +3030,8 @@ window.REVIEW_MULTIPLE_CHOICE = [
     "memory": "类适配器用继承，对象适配器用关联",
     "quotes": [
       {
-        "text": "其中，类适配器使用继承关系来实现，对象适配器使用组合关系来实现。",
-        "source": "205912.md 第13行"
+        "text": "在类适配器模式中，Adapter 角色通过继承来使用 Adaptee 角色，而在对象适配器模式中，Adapter 角色通过委托来使用 Adaptee 角色。",
+        "source": "02-Adapter模式.md 第227行"
       }
     ],
     "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/02-Adapter模式.md",
@@ -3076,8 +3076,8 @@ window.REVIEW_MULTIPLE_CHOICE = [
     "memory": "JDBC 驱动把各家数据库的接口转成统一接口，是适配器",
     "quotes": [
       {
-        "text": "它相当于JDBC规范，提供了一套打印日志的统一接口规范。",
-        "source": "205912.md 第307行"
+        "text": "在程序世界中，经常会存在现有的程序无法直接使用，需要做适当的变换之后才能使用的情况。这种用于填补“现有的程序”和“所需的程序”之间差异的设计模式就是Adapter模式。",
+        "source": "02-Adapter模式.md 第19行"
       }
     ],
     "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/02-Adapter模式.md",
@@ -3209,8 +3209,8 @@ window.REVIEW_MULTIPLE_CHOICE = [
     "memory": "两个维度用桥接，一个维度里换算法用策略",
     "quotes": [
       {
-        "text": "一个类存在两个（或多个）独立变化的维度，我们通过组合的方式，让这两个（或多个）维度可以独立进行扩展。",
-        "source": "202786.md 第15行"
+        "text": "因此，我们需要将“类的功能层次结构”与“类的实现层次结构”分离为两个独立的类层次结构。",
+        "source": "09-Bridge模式.md 第93行"
       }
     ],
     "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/09-Bridge模式.md",
@@ -3352,8 +3352,8 @@ window.REVIEW_MULTIPLE_CHOICE = [
     "memory": "数据是树，又要“一视同仁”地处理任意节点，就选组合模式",
     "quotes": [
       {
-        "text": "组合模式让客户端可以统一对待单个对象和组合对象。",
-        "source": "A-常用设计模式的定义及结构图.md 第143行"
+        "text": "能够使容器与内容具有一致性，创造出递归结构的模式就是 Composite 模式。",
+        "source": "11-Composite模式.md 第21行"
       }
     ],
     "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/11-Composite模式.md",
@@ -3441,8 +3441,8 @@ window.REVIEW_MULTIPLE_CHOICE = [
     "memory": "题目里出现“抽象化角色＋实现化角色”就是桥接模式",
     "quotes": [
       {
-        "text": "装饰模式(Decorator Pattern): 动态地给一个对象增加一些额外的职责。",
-        "source": "A-常用设计模式的定义及结构图.md 第153行"
+        "text": "像这样不断地为对象添加装饰的设计模式被称为 Decorator 模式。",
+        "source": "12-Decorator模式.md 第25行"
       }
     ],
     "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/12-Decorator模式.md",
@@ -3832,8 +3832,8 @@ window.REVIEW_MULTIPLE_CHOICE = [
     "memory": "生活中的“中介”“代办”“经纪人”多半是代理模式",
     "quotes": [
       {
-        "text": "代理模式(Proxy Pattern): 给某一个对象提供一个代理或占位符, 并由代理对象来控制对原对象的访问。",
-        "source": "A-常用设计模式的定义及结构图.md 第207行"
+        "text": "当不一定需要本人亲自进行工作时，就可以寻找代理人去完成工作。",
+        "source": "21-Proxy模式.md 第15行"
       }
     ],
     "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/21-Proxy模式.md",
@@ -3878,8 +3878,8 @@ window.REVIEW_MULTIPLE_CHOICE = [
     "memory": "智能引用＝调用时附加额外操作（计数、日志）",
     "quotes": [
       {
-        "text": "代理模式(Proxy Pattern): 给某一个对象提供一个代理或占位符, 并由代理对象来控制对原对象的访问。",
-        "source": "A-常用设计模式的定义及结构图.md 第207行"
+        "text": "当不一定需要本人亲自进行工作时，就可以寻找代理人去完成工作。",
+        "source": "21-Proxy模式.md 第15行"
       }
     ],
     "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/21-Proxy模式.md",
@@ -4108,8 +4108,8 @@ window.REVIEW_MULTIPLE_CHOICE = [
     "memory": "命令模式管撤销、排队、解耦；“不改元素类加新操作”是访问者",
     "quotes": [
       {
-        "text": "命令模式的主要作用和应用场景，是用来控制命令的执行，比如，异步、延迟、排队执行命令、撤销重做命令、存储命令、给命令记录日志等等",
-        "source": "224549.md 第23行"
+        "text": "要想管理工作的历史记录，只需管理这些实例的集合即可，而且还可以随时再次执行过去的命令，或是将多个过去的命令整合为一个新命令并执行。",
+        "source": "22-Command模式.md 第15行"
       }
     ],
     "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/22-Command模式.md",
@@ -4284,8 +4284,8 @@ window.REVIEW_MULTIPLE_CHOICE = [
     "memory": "多个对象互相调用成一张网，就加一个中介者",
     "quotes": [
       {
-        "text": "中介者模式(Mediator Pattern): 定义一个对象来封装一系列对象的交互。中介者模式使各对象之间不需要显式地相互引用, 从而使其耦合松散, 而且让你可以独立地改变它们之间的交互。",
-        "source": "A-常用设计模式的定义及结构图.md 第287行"
+        "text": "即不让各个对象之间互相通信，而是增加一个仲裁者角色，让他们各自与仲裁者通信。",
+        "source": "16-Mediator模式.md 第87行"
       }
     ],
     "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/16-Mediator模式.md",
@@ -4374,8 +4374,8 @@ window.REVIEW_MULTIPLE_CHOICE = [
     "memory": "迭代器对应聚集（集合）",
     "quotes": [
       {
-        "text": "迭代器模式(Iterator Pattern): 提供一种方法顺序访问一个聚合对象中的各个元素, 而又不用暴露该对象的内部表示。",
-        "source": "A-常用设计模式的定义及结构图.md 第271行"
+        "text": "Iterator 模式用于在数据集合中按照顺序遍历集合。",
+        "source": "01-Iterator模式.md 第40行"
       }
     ],
     "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/01-Iterator模式.md",
@@ -4418,8 +4418,8 @@ window.REVIEW_MULTIPLE_CHOICE = [
     "memory": "中介者、外观这类“加中间人”的模式都是迪米特法则的应用",
     "quotes": [
       {
-        "text": "不该有直接依赖关系的类之间，不要有依赖；有依赖关系的类之间，尽量只依赖必要的接口（也就是定义中的“有限知识”）。",
-        "source": "179615.md 第53行"
+        "text": "即不让各个对象之间互相通信，而是增加一个仲裁者角色，让他们各自与仲裁者通信。",
+        "source": "16-Mediator模式.md 第87行"
       }
     ],
     "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/16-Mediator模式.md",
@@ -4464,8 +4464,8 @@ window.REVIEW_MULTIPLE_CHOICE = [
     "memory": "中介者：多对多变一对多；观察者：一对多通知",
     "quotes": [
       {
-        "text": "通过引入中介这个中间层，将一组对象之间的交互关系（或者说依赖关系）从多对多（网状关系）转换为一对多（星状关系）",
-        "source": "226710.md 第19行"
+        "text": "团队组员之间不再互相沟通并私自做出决定，而是发生任何事情都向仲裁者报告。",
+        "source": "16-Mediator模式.md 第19行"
       }
     ],
     "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/16-Mediator模式.md",
@@ -4508,8 +4508,8 @@ window.REVIEW_MULTIPLE_CHOICE = [
     "memory": "撤销 Undo 要“存旧状态再恢复”，就是备忘录",
     "quotes": [
       {
-        "text": "备忘录模式(Memento Pattern): 在不破坏封装的前提下, 捕获一个对象的内部状态, 并在该对象之外保存这个状态, 这样可以在以后将对象恢复到原先保存的状态。",
-        "source": "A-常用设计模式的定义及结构图.md 第301行"
+        "text": "Memento 模式事先将某个时间点的实例的状态保存下来，之后在有必要时，再将实例恢复至当时的状态。",
+        "source": "18-Memento模式.md 第33行"
       }
     ],
     "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/18-Memento模式.md",
@@ -4616,7 +4616,7 @@ window.REVIEW_MULTIPLE_CHOICE = [
     "id": "E4-MC-15",
     "source": "习题4选择题第15题",
     "category": "行为型设计模式",
-    "pattern": "状态模式",
+    "pattern": "观察者模式",
     "stem": "( )设计模式定义了对象间的一种一对多的依赖关系,以便当一个对象的状态发生改变时,所有依赖于它的对象都得到通知并自动刷新。",
     "materials": [],
     "options": [
@@ -4649,12 +4649,12 @@ window.REVIEW_MULTIPLE_CHOICE = [
     "memory": "“一对多”“状态改变自动通知”就是观察者",
     "quotes": [
       {
-        "text": "观察者模式(Observer Pattern): 定义对象之间的一种一对多依赖关系, 使每当一个对象状态发生改变时, 其相关依赖对象皆得到通知并被自动更新。",
-        "source": "A-常用设计模式的定义及结构图.md 第317行"
+        "text": "在 Observer 模式中，当观察对象的状态发生变化时，会通知给观察者。",
+        "source": "17-Observer模式.md 第17行"
       }
     ],
-    "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/19-State模式.md",
-    "lessonTitle": "19-State模式.md"
+    "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/17-Observer模式.md",
+    "lessonTitle": "17-Observer模式.md"
   },
   {
     "id": "E4-MC-16",
@@ -4896,8 +4896,8 @@ window.REVIEW_MULTIPLE_CHOICE = [
     "memory": "状态模式看“对象自己的状态”在变；由外部平台决定的差异不是状态模式",
     "quotes": [
       {
-        "text": "状态模式(State Pattern): 允许一个对象在其内部状态改变时改变它的行为。对象看起来似乎修改了它的类。",
-        "source": "A-常用设计模式的定义及结构图.md 第331行"
+        "text": "以类来表示状态后，我们就能通过切换类来方便地改变对象的状态。",
+        "source": "19-State模式.md 第19行"
       }
     ],
     "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/19-State模式.md",
@@ -5080,8 +5080,8 @@ window.REVIEW_MULTIPLE_CHOICE = [
     "memory": "用户“可选择的多种算法”就用策略",
     "quotes": [
       {
-        "text": "策略模式让算法可以独立于使用它的客户而变化。",
-        "source": "A-常用设计模式的定义及结构图.md 第349行"
+        "text": "使用Strategy模式可以整体地替换算法的实现部分。",
+        "source": "10-Strategy模式.md 第17行"
       }
     ],
     "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/10-Strategy模式.md",
@@ -5125,8 +5125,8 @@ window.REVIEW_MULTIPLE_CHOICE = [
     "memory": "“流程一样，个别步骤不同”就选模板方法",
     "quotes": [
       {
-        "text": "模板方法模式(Template Method Pattern): 定义一个操作中算法的框架, 而将一些步骤延迟到子类中。",
-        "source": "A-常用设计模式的定义及结构图.md 第363行"
+        "text": "像这样在父类中定义处理流程的框架，在子类中实现具体处理的模式就称为 Template Method 模式。",
+        "source": "03-TemplateMethod模式.md 第27行"
       }
     ],
     "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/03-TemplateMethod模式.md",
@@ -5408,8 +5408,8 @@ window.REVIEW_MULTIPLE_CHOICE = [
     "memory": "try-catch 多个 catch 依次匹配，是职责链的例子",
     "quotes": [
       {
-        "text": "将接收请求的对象连接成一条链, 并且沿着这条链传递请求, 直到有一个对象能够处理它为止。",
-        "source": "A-常用设计模式的定义及结构图.md 第223行"
+        "text": "这种情况下，我们可以考虑将多个对象组成一条职责链，然后按照它们在职责链上的顺序一个一个地找出到底应该谁来负责处理。",
+        "source": "14-ChainofResponsibility模式.md 第15行"
       }
     ],
     "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/14-ChainofResponsibility模式.md",

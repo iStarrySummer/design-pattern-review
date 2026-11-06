@@ -1502,8 +1502,8 @@ window.REVIEW_TEXTBOOK = [
         "source": "A07-Builder模式-习题解答.md 第166行"
       },
       {
-        "text": "建造者模式(Builder Pattern): 将一个复杂对象的构建与它的表示分离, 使得同样的构建过程可以创建不同的表示。",
-        "source": "A-常用设计模式的定义及结构图.md 第53行"
+        "text": "在本章中，我们将要学习用于组装具有复杂结构的实例的 Builder 模式。",
+        "source": "07-Builder模式.md 第17行"
       }
     ],
     "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/07-Builder模式.md"
