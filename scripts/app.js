@@ -26,7 +26,7 @@
     { title: "依赖倒转原则", path: courseReferenceRoot + "177444.md", terms: ["依赖倒转", "依赖反转"] },
     { title: "合成复用原则", path: courseReferenceRoot + "169593.md", terms: ["合成复用", "组合优于继承", "多使用组合"] },
     { title: "迪米特法则", path: courseReferenceRoot + "179615.md", terms: ["迪米特", "最少知识原则"] },
-    { title: "简单工厂模式", path: courseReferenceRoot + "197254.md", terms: ["简单工厂"] },
+    { title: "简单工厂模式", path: illustratedReferenceRoot + "04-FactoryMethod模式.md", terms: ["简单工厂"] },
     { title: "工厂方法模式", path: illustratedReferenceRoot + "04-FactoryMethod模式.md", terms: ["工厂方法", "Factory Method模式", "FactoryMethod模式"] },
     { title: "抽象工厂模式", path: illustratedReferenceRoot + "08-AbstractFactory模式.md", terms: ["抽象工厂", "Abstract Factory模式", "AbstractFactory模式"] },
     { title: "建造者模式", path: illustratedReferenceRoot + "07-Builder模式.md", terms: ["建造者模式", "Builder模式"] },
