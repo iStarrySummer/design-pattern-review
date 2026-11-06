@@ -1,0 +1,200 @@
+/* =====================================================================
+   Pattern Review — shared components (组件)
+   Uses only variables from tokens.css. Load order in HTML:
+     tokens.css → components.css → app.css (page layout only)
+   Class names start with "rv-" so they never clash with page CSS.
+   ===================================================================== */
+
+/* ---------- Page base ---------- */
+html { background: var(--paper); }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 24px;
+}
+
+/* One rule for keyboard focus everywhere: 2px solid ring, 2px gap */
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+/* Links use the action color */
+a { color: var(--primary); }
+
+/* Search highlight: wrap matched words in <mark> */
+mark { background: var(--mark); color: var(--ink); border-radius: 2px; padding: 0 1px; }
+
+/* ---------- Question card ---------- */
+/* Holds one question: source line, stem, materials, options, actions */
+.rv-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  max-width: var(--measure);
+}
+.rv-card__source { color: var(--ink-muted); margin: 0 0 var(--space-2); }  /* use with .t-meta */
+.rv-card__stem   { margin: 0 0 var(--space-4); }                           /* use with .t-question */
+
+/* ---------- Answer option ---------- */
+/* <button class="rv-option t-body"> <span class="rv-option__key">A</span>
+     <span class="rv-option__text">…</span> <span class="rv-option__note t-label">✓ Correct</span> </button>
+   States: (none) | .is-chosen | .is-correct | .is-wrong */
+.rv-options { display: flex; flex-direction: column; gap: var(--space-2); }
+.rv-option {
+  display: flex; align-items: center; gap: 12px;
+  width: 100%; text-align: left;
+  padding: 11px var(--space-4);
+  background: var(--card);
+  color: var(--ink);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-md);
+  font: inherit;
+  cursor: pointer;
+}
+.rv-option:not([disabled]):not(.is-chosen):hover { background: var(--paper); }  /* hover only while still choosable */
+.rv-option__key {                    /* the round letter dot */
+  flex: none; width: 28px; height: 28px;
+  display: grid; place-items: center;
+  border-radius: var(--radius-pill);
+  background: var(--sunken); color: var(--ink);
+  font-size: 14px; font-weight: 600;
+}
+.rv-option__text { flex: 1; }
+.rv-option__note { flex: none; }     /* "✓ Correct" / "✗ Your answer" */
+
+/* 2px borders below, so padding drops 1px to keep the same size */
+.rv-option.is-chosen  { background: var(--primary-soft); border: 2px solid var(--primary); padding: 10px 15px; }
+.rv-option.is-chosen .rv-option__key  { background: var(--primary); color: var(--on-primary); }
+
+.rv-option.is-correct { background: var(--correct-soft); border: 2px solid var(--correct); padding: 10px 15px; }
+.rv-option.is-correct .rv-option__key { background: var(--correct); color: var(--card); }
+.rv-option.is-correct .rv-option__note { color: var(--correct); }
+
+.rv-option.is-wrong   { background: var(--wrong-soft); border: 2px solid var(--wrong); padding: 10px 15px; }
+.rv-option.is-wrong .rv-option__key   { background: var(--wrong); color: var(--card); }
+.rv-option.is-wrong .rv-option__note  { color: var(--wrong); }
+
+.rv-card.has-judged-answer .rv-option.is-correct { animation: rv-correct-pop 420ms ease-out; }
+.rv-card.has-judged-answer .rv-option.is-wrong { animation: rv-wrong-shake 420ms ease-out; }
+.rv-card.is-answer-correct .app-result,
+.rv-card.is-answer-wrong .app-result { animation: rv-result-in 320ms ease-out; }
+
+@keyframes rv-correct-pop {
+  0% { transform: scale(0.98); }
+  55% { transform: scale(1.015); }
+  100% { transform: scale(1); }
+}
+
+@keyframes rv-wrong-shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-3px); }
+}
+
+@keyframes rv-result-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rv-card.has-judged-answer .rv-option.is-correct,
+  .rv-card.has-judged-answer .rv-option.is-wrong,
+  .rv-card.is-answer-correct .app-result,
+  .rv-card.is-answer-wrong .app-result { animation: none; }
+}
+
+/* After checking, options are locked but keep full-contrast text */
+.rv-option[disabled] { cursor: default; }
+
+/* ---------- Buttons ---------- */
+/* <button class="rv-btn rv-btn--primary t-label">Check answer</button> */
+.rv-btn {
+  height: 40px; padding: 0 var(--space-4);
+  display: inline-flex; align-items: center; gap: var(--space-1);
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  font-family: inherit;
+  cursor: pointer;
+}
+.rv-btn--primary   { background: var(--primary); color: var(--on-primary); }               /* one per area */
+.rv-btn--secondary { background: var(--card); color: var(--ink); border-color: var(--line-strong); }
+.rv-btn--quiet     { background: transparent; color: var(--primary); }                     /* "Show explanation ▾" */
+.rv-btn:disabled   { background: var(--sunken); color: var(--ink-muted); border-color: transparent; cursor: not-allowed; }
+.rv-actions { display: flex; flex-wrap: wrap; gap: var(--space-2); align-items: center; margin-top: var(--space-4); }
+
+/* ---------- Status tags ---------- */
+/* <span class="rv-tag rv-tag--correct t-meta">✓ Correct</span> — always a mark + a word */
+.rv-tag {
+  display: inline-flex; align-items: center; gap: var(--space-1);
+  height: 24px; padding: 0 var(--space-2);
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  font-weight: 600;
+}
+.rv-tag--correct    { background: var(--correct-soft); color: var(--correct); }
+.rv-tag--wrong      { background: var(--wrong-soft); color: var(--wrong); }
+.rv-tag--unanswered { background: var(--sunken); color: var(--ink-muted); }
+.rv-tag--source     { background: var(--card); color: var(--ink-muted); border-color: var(--line); font-weight: 400; }
+
+/* ---------- Mode switch (Study / Practice) ---------- */
+/* <div class="rv-mode" role="group"><button class="rv-mode__seg t-label" aria-pressed="true">Study</button>…</div> */
+.rv-mode { display: inline-flex; padding: 3px; gap: 2px; background: var(--sunken); border-radius: var(--radius-pill); }
+.rv-mode__seg {
+  height: 30px; padding: 0 var(--space-4);
+  border-radius: var(--radius-pill);
+  border: 1px solid transparent;
+  background: transparent; color: var(--ink-muted);
+  font-family: inherit; cursor: pointer;
+}
+.rv-mode__seg[aria-pressed="true"] { background: var(--card); color: var(--ink); border-color: var(--line-strong); }
+
+/* ---------- Filter chips ---------- */
+/* <button class="rv-chip t-label" aria-pressed="false">Chapter 3</button> */
+.rv-chip {
+  height: 32px; padding: 0 12px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--line-strong);
+  background: var(--card); color: var(--ink);
+  font-family: inherit; cursor: pointer;
+}
+.rv-chip[aria-pressed="true"] { background: var(--primary-soft); color: var(--primary); border-color: var(--primary); }
+
+/* ---------- Collapsible explanation / answer ---------- */
+/* <details class="rv-explain"><summary class="t-label">Show explanation</summary><div class="t-body">…</div></details> */
+.rv-explain { margin-top: var(--space-4); }
+.rv-explain > summary {
+  display: inline-flex; align-items: center; gap: var(--space-1);
+  color: var(--primary); cursor: pointer; list-style: none;
+}
+.rv-explain > summary::-webkit-details-marker { display: none; }  /* hide the default triangle in Safari/Chrome */
+.rv-explain > summary::after { content: "▾"; }                    /* our own arrow */
+.rv-explain[open] > summary::after { content: "▴"; }
+.rv-explain > div {
+  margin-top: var(--space-2);
+  padding: var(--space-4);
+  background: var(--sunken);
+  border-radius: var(--radius-sm);
+}
+
+/* ---------- Materials inside questions ---------- */
+.rv-code {                           /* <pre class="rv-code t-code"><code>…</code></pre> */
+  margin: var(--space-4) 0;
+  padding: var(--space-4);
+  background: var(--sunken); color: var(--ink);
+  border-radius: var(--radius-sm);
+  overflow-x: auto;                  /* long lines scroll instead of breaking the page */
+}
+.rv-table { border-collapse: collapse; margin: var(--space-4) 0; }
+.rv-table th, .rv-table td { border: 1px solid var(--line); padding: var(--space-2) 12px; text-align: left; }
+.rv-table th { background: var(--sunken); }
+.rv-figure { margin: var(--space-4) 0; }
+.rv-figure img { max-width: 100%; height: auto; background: var(--figure-bg); border-radius: var(--radius-sm); } /* white behind diagrams so scanned images stay readable in dark mode */
+.rv-figure figcaption { color: var(--ink-muted); margin-top: var(--space-1); }
+
+/* ---------- Progress bar ---------- */
+/* <div class="rv-progress"><div class="rv-progress__fill" style="width:40%"></div></div> */
+.rv-progress { height: 8px; background: var(--sunken); border-radius: var(--radius-pill); overflow: hidden; }
+.rv-progress__fill { height: 100%; background: var(--primary); border-radius: var(--radius-pill); }

@@ -1,0 +1,121 @@
+/* =====================================================================
+   Pattern Review — design tokens (设计变量)
+   The ONLY place colors, fonts, spacing and corner sizes are defined.
+   Every other CSS file must use these var(--…) names, never raw values.
+   Theme rules:
+     - Light is the default.
+     - Dark follows the computer's setting (prefers-color-scheme),
+       unless <html data-theme="light"> or <html data-theme="dark"> forces one.
+   ===================================================================== */
+
+/* ---------- Light theme (default) ---------- */
+:root,
+:root[data-theme="light"] {
+  color-scheme: light;               /* tells the browser to draw form controls and scrollbars in light style */
+
+  /* Ground (底色) */
+  --paper: #f7f5f0;                  /* page background, warm off-white */
+  --card: #ffffff;                   /* question cards, answer options; also text on a correct/wrong fill */
+  --sunken: #efebe3;                 /* code blocks, tables, opened explanation, progress track, mode-switch track */
+
+  /* Lines */
+  --line: #e2ddd3;                   /* hairline dividers, decoration only */
+  --line-strong: #8c8579;            /* border of anything clickable (≥3:1 on card and paper) */
+
+  /* Ink (文字) */
+  --ink: #1e2330;                    /* main text */
+  --ink-muted: #5b6271;              /* source line, counts, hints, disabled labels */
+
+  /* Action (主色) — the one accent color */
+  --primary: #2a55c0;                /* primary button, links, chosen option, active filter */
+  --on-primary: #ffffff;             /* text on a primary fill */
+  --primary-soft: #e6ecfa;           /* chosen-option background, active filter chip */
+  --focus: var(--primary);           /* keyboard focus ring */
+
+  /* Judgment (判定色) — only for judged answers */
+  --correct: #00734f;                /* blue-leaning green, color-blind safe next to --wrong */
+  --correct-soft: #ddf1e8;           /* correct option / tag background */
+  --wrong: #b23d12;                  /* vermilion red */
+  --wrong-soft: #fcebe5;             /* wrong pick / tag background */
+
+  /* Search */
+  --mark: #ffe08a;                   /* highlight behind matched search words */
+}
+
+/* ---------- Dark theme: computer setting, unless forced light ---------- */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --paper: #15171c;
+    --card: #1d2027;
+    --sunken: #262a33;
+    --line: #30343e;
+    --line-strong: #717887;
+    --ink: #e8e9ed;
+    --ink-muted: #a4aab6;
+    --primary: #8aa8f4;              /* lighter blue in dark mode ... */
+    --on-primary: #11141b;           /* ... so text on it turns dark */
+    --primary-soft: #202b47;
+    --correct: #4ccb9c;
+    --correct-soft: #11302a;
+    --wrong: #f5916a;
+    --wrong-soft: #3b1f19;
+    --mark: #6b5512;
+  }
+}
+
+/* ---------- Dark theme: forced by the theme toggle ---------- */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #15171c;
+  --card: #1d2027;
+  --sunken: #262a33;
+  --line: #30343e;
+  --line-strong: #717887;
+  --ink: #e8e9ed;
+  --ink-muted: #a4aab6;
+  --primary: #8aa8f4;
+  --on-primary: #11141b;
+  --primary-soft: #202b47;
+  --correct: #4ccb9c;
+  --correct-soft: #11302a;
+  --wrong: #f5916a;
+  --wrong-soft: #3b1f19;
+  --mark: #6b5512;
+}
+
+/* ---------- Fonts, spacing, corners (same in both themes) ---------- */
+:root {
+  /* System fonts only: no download, works offline, covers Chinese */
+  --font-sans: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+  --font-art: "Xingkai SC", "HanziPen SC", "Kaiti SC", "STKaiti", cursive;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  /* Spacing on a 4px base */
+  --space-1: 4px;                    /* icon-to-word gap */
+  --space-2: 8px;                    /* inside tags, gap between options */
+  --space-4: 16px;                   /* card and option padding */
+  --space-6: 24px;                   /* between sections */
+  --space-8: 32px;                   /* page side gutters on wide screens */
+
+  /* Corner radius (圆角) */
+  --radius-sm: 6px;                  /* tags, inputs, code blocks */
+  --radius-md: 10px;                 /* options, buttons, cards */
+  --radius-pill: 999px;              /* mode switch, filter chips, letter dots */
+
+  /* Reading column width */
+  --measure: 720px;
+
+  /* Behind question images and diagrams: stays white in both themes,
+     because scanned diagrams have black lines on a white or clear background */
+  --figure-bg: #ffffff;
+}
+
+/* ---------- Text styles: put these classes on elements ---------- */
+.t-display  { font-family: var(--font-art); font-size: 34px; line-height: 42px; font-weight: 600; letter-spacing: 0.04em; }   /* page titles */
+.t-heading  { font-family: var(--font-art); font-size: 23px; line-height: 31px; font-weight: 600; }                          /* module / section titles */
+.t-question { font-family: var(--font-sans); font-size: 17px; line-height: 30px; font-weight: 500; }                          /* every question stem */
+.t-body     { font-family: var(--font-sans); font-size: 15px; line-height: 24px; font-weight: 400; }                          /* options, answers, explanations */
+.t-label    { font-family: var(--font-art); font-size: 16px; line-height: 22px; font-weight: 600; }                          /* buttons, tags, mode switch */
+.t-meta     { font-family: var(--font-art); font-size: 15px; line-height: 20px; font-weight: 400; }                          /* source line, counts, hints */
+.t-code     { font-family: var(--font-mono); font-size: 14px; line-height: 22px; font-weight: 400; }                          /* code */
