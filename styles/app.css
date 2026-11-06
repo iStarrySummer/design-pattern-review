@@ -131,6 +131,22 @@ summary { -webkit-tap-highlight-color: transparent; }
 .app-prep-section__body { padding-top: var(--space-3); }
 .app-prep-section__body ul { margin: 0; padding-left: 20px; }
 
+.app-prep-blocks {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+.app-prep-block {
+  padding: var(--space-3);
+  background: var(--sunken);
+  border-radius: var(--radius-sm);
+}
+
+.app-prep-block:first-child { grid-column: 1 / -1; }
+.app-prep-block h3 { margin: 0 0 var(--space-2); }
+
 .app-prep-links {
   display: flex;
   flex-wrap: wrap;
@@ -226,12 +242,13 @@ summary { -webkit-tap-highlight-color: transparent; }
 }
 
 .app-split-pane {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: var(--space-2);
   min-width: 0;
   height: clamp(420px, 64vh, 760px);
   padding: var(--space-2);
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  scrollbar-gutter: stable;
+  overflow: hidden;
   background: var(--sunken);
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
@@ -239,17 +256,24 @@ summary { -webkit-tap-highlight-color: transparent; }
 
 .app-split-pane .rv-card {
   max-width: none;
-  min-height: calc(100% - 48px);
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
 }
 
 .app-copy-bar {
-  position: sticky;
-  top: 0;
-  z-index: 2;
   display: flex;
   justify-content: flex-end;
-  padding-bottom: var(--space-2);
-  background: var(--sunken);
+  width: fit-content;
+  justify-self: end;
+  padding: 0;
+  background: transparent;
+}
+
+.app-copy-button {
+  min-height: 32px;
+  padding: 0 var(--space-3);
 }
 
 .app-copy-field {
@@ -360,6 +384,8 @@ summary { -webkit-tap-highlight-color: transparent; }
 
 @media (max-width: 640px) {
   .app-mind-map { grid-template-columns: 1fr; }
+  .app-prep-blocks { grid-template-columns: 1fr; }
+  .app-prep-block:first-child { grid-column: auto; }
   .app-header__inner,
   .app-main { width: calc(100% - 24px); }
 

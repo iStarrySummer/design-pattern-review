@@ -230,7 +230,7 @@
 
     var grid = node("div", "app-grid app-grid--four")
     grid.appendChild(moduleCard(
-      "预备学习",
+      "What you should know",
       prepSections.length + " 个部分",
       "开始学习",
       function () { go("#/prep") },
@@ -271,7 +271,7 @@
     clearPage()
     app.appendChild(accountBar())
     app.appendChild(backLink("#/home", "返回首页"))
-    pageHeading("预备学习")
+    pageHeading("What you should know")
     var progress = progressBar(viewedCount("prep"), prepSections.length)
     progress.classList.add("app-prep-progress")
     app.appendChild(progress)
@@ -295,6 +295,16 @@
   function renderPrepSectionBody(section) {
     var body = node("div", "app-prep-section__body t-body")
     appendBulletList(body, section.items || [])
+    if (Array.isArray(section.blocks) && section.blocks.length) {
+      var blocks = node("div", "app-prep-blocks")
+      section.blocks.forEach(function (block) {
+        var item = node("section", "app-prep-block")
+        item.appendChild(node("h3", "t-label", block.title))
+        appendBulletList(item, block.items || [])
+        blocks.appendChild(item)
+      })
+      body.appendChild(blocks)
+    }
     appendPrepLinks(body, section.links || [])
     if (Array.isArray(section.groups) && section.groups.length) {
       var map = node("div", "app-mind-map")
