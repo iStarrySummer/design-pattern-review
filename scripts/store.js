@@ -8,7 +8,7 @@
   var activeStudentKey = "pr:active-student-id"
   var themeKey = "pr:theme"
   var fallbackState = {
-    version: 4,
+    version: 5,
     selected: {},
     checked: {},
     mcIndex: {
@@ -20,6 +20,13 @@
     mcRandomIds: [],
     mcWrongIds: [],
     mcWrongCounts: {},
+    viewed: {
+      prep: [],
+      study: [],
+      fill: [],
+      comprehensive: [],
+      textbook: []
+    },
     fillIndex: 0,
     comprehensiveIndex: 0,
     textbookIndex: 0
@@ -91,6 +98,11 @@
     base.mcWrongCounts = saved.mcWrongCounts && typeof saved.mcWrongCounts === "object"
       ? saved.mcWrongCounts
       : {}
+    if (saved.viewed && typeof saved.viewed === "object") {
+      Object.keys(base.viewed).forEach(function (key) {
+        base.viewed[key] = Array.isArray(saved.viewed[key]) ? saved.viewed[key].map(String) : []
+      })
+    }
     if (saved.mcIndex && typeof saved.mcIndex === "object") {
       base.mcIndex.study = Number(saved.mcIndex.study) || 0
       base.mcIndex.sequential = Number(saved.mcIndex.sequential) || 0
@@ -116,7 +128,7 @@
     var studentId = readStudentId()
     if (!studentId) return false
     try {
-      state.version = 4
+      state.version = 5
       localStorage.setItem(studentStateKey(studentId), JSON.stringify(state))
       return true
     } catch (error) {

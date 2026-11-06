@@ -9,6 +9,13 @@
   var fillQuestions = writtenQuestions.filter(function (question) { return question.type === "fill" })
   var comprehensiveQuestions = writtenQuestions.filter(function (question) { return question.type === "comprehensive" })
   var textbookQuestions = window.REVIEW_TEXTBOOK || []
+  var materialLinks = window.REVIEW_MATERIAL_LINKS || {}
+  var prepSections = window.REVIEW_PRESTUDY || [
+    { id: "experience", title: "往届经验", items: ["题型与复习重点"] },
+    { id: "guide", title: "系统使用", items: ["学习模式、快捷键与错题记录"] },
+    { id: "basics", title: "预备知识", items: ["UML 类图阅读基础"] },
+    { id: "outline", title: "知识大纲与思维导图", items: ["课程知识点结构"] }
+  ]
   var courseReferenceRoot = "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/design-pattern-books-master/docs/"
   var illustratedReferenceRoot = "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/"
   var knowledgePointCatalog = [
@@ -47,6 +54,10 @@
   if (!state.mcIndex || typeof state.mcIndex !== "object") state.mcIndex = {}
   if (!Array.isArray(state.mcWrongIds)) state.mcWrongIds = []
   if (!state.mcWrongCounts || typeof state.mcWrongCounts !== "object") state.mcWrongCounts = {}
+  if (!state.viewed || typeof state.viewed !== "object") state.viewed = {}
+  ;["prep", "study", "fill", "comprehensive", "textbook"].forEach(function (key) {
+    if (!Array.isArray(state.viewed[key])) state.viewed[key] = []
+  })
   state.mcWrongIds.forEach(function (questionId) {
     if (!Number(state.mcWrongCounts[questionId])) state.mcWrongCounts[questionId] = 1
   })
@@ -160,12 +171,50 @@
     if (lead) app.appendChild(node("p", "app-lead t-body", lead))
   }
 
-  function moduleCard(title, count, actionText, action) {
+  function moduleCard(title, count, actionText, action, progress) {
     var card = node("section", "app-module")
     card.appendChild(node("p", "app-module__count t-meta", count))
     card.appendChild(node("h2", "t-heading", title))
+    if (progress) card.appendChild(progressBar(progress.done, progress.total))
     card.appendChild(button(actionText, "rv-btn rv-btn--primary t-label", action))
     return card
+  }
+
+  function progressBar(done, total) {
+    var wrap = node("div", "app-progress")
+    var track = node("div", "app-progress__track")
+    var value = node("div", "app-progress__value")
+    track.setAttribute("role", "progressbar")
+    track.appendChild(value)
+    wrap.appendChild(track)
+    wrap.appendChild(node("span", "app-progress__text t-meta"))
+    updateProgressBar(wrap, done, total)
+    return wrap
+  }
+
+  function updateProgressBar(wrap, done, total) {
+    var safeTotal = Math.max(0, Number(total) || 0)
+    var safeDone = Math.max(0, Math.min(Number(done) || 0, safeTotal))
+    var percent = safeTotal ? Math.round(safeDone / safeTotal * 100) : 0
+    var track = wrap.querySelector(".app-progress__track")
+    var value = wrap.querySelector(".app-progress__value")
+    var text = wrap.querySelector(".app-progress__text")
+    track.setAttribute("aria-valuemin", "0")
+    track.setAttribute("aria-valuemax", String(safeTotal))
+    track.setAttribute("aria-valuenow", String(safeDone))
+    value.style.width = percent + "%"
+    text.textContent = percent + "%"
+  }
+
+  function viewedCount(key) {
+    return Array.isArray(state.viewed[key]) ? state.viewed[key].length : 0
+  }
+
+  function markViewed(key, id) {
+    var value = String(id || "")
+    if (!value || state.viewed[key].indexOf(value) !== -1) return
+    state.viewed[key].push(value)
+    saveState()
   }
 
   function backLink(route, text) {
@@ -181,30 +230,99 @@
 
     var grid = node("div", "app-grid app-grid--four")
     grid.appendChild(moduleCard(
+      "预备学习",
+      prepSections.length + " 个部分",
+      "开始学习",
+      function () { go("#/prep") },
+      { done: viewedCount("prep"), total: prepSections.length }
+    ))
+    grid.appendChild(moduleCard(
       "选择题",
       mcQuestions.length + " 道原书题目",
       "选择学习模式",
-      function () { go("#/mc") }
+      function () { go("#/mc") },
+      { done: viewedCount("study"), total: mcQuestions.length }
     ))
     grid.appendChild(moduleCard(
       "填空题",
       fillQuestions.length + " 道题目",
       "开始复习",
-      function () { go("#/fill") }
+      function () { go("#/fill") },
+      { done: viewedCount("fill"), total: fillQuestions.length }
     ))
     grid.appendChild(moduleCard(
       "综合题",
       comprehensiveQuestions.length + " 道题目",
       "开始复习",
-      function () { go("#/comprehensive") }
+      function () { go("#/comprehensive") },
+      { done: viewedCount("comprehensive"), total: comprehensiveQuestions.length }
     ))
     grid.appendChild(moduleCard(
       "图解设计模式课后题",
       textbookQuestions.length + " 道题目",
       "开始复习",
-      function () { go("#/textbook") }
+      function () { go("#/textbook") },
+      { done: viewedCount("textbook"), total: textbookQuestions.length }
     ))
     app.appendChild(grid)
+  }
+
+  function prepPage() {
+    clearPage()
+    app.appendChild(accountBar())
+    app.appendChild(backLink("#/home", "返回首页"))
+    pageHeading("预备学习")
+    var progress = progressBar(viewedCount("prep"), prepSections.length)
+    progress.classList.add("app-prep-progress")
+    app.appendChild(progress)
+    var list = node("div", "app-prep-list")
+    prepSections.forEach(function (section) {
+      var details = node("details", "app-prep-section rv-card")
+      details.open = state.viewed.prep.indexOf(section.id) !== -1
+      details.appendChild(node("summary", "t-heading", section.title))
+      details.appendChild(renderPrepSectionBody(section))
+      details.addEventListener("toggle", function () {
+        if (details.open) {
+          markViewed("prep", section.id)
+          updateProgressBar(progress, viewedCount("prep"), prepSections.length)
+        }
+      })
+      list.appendChild(details)
+    })
+    app.appendChild(list)
+  }
+
+  function renderPrepSectionBody(section) {
+    var body = node("div", "app-prep-section__body t-body")
+    appendBulletList(body, section.items || [])
+    appendPrepLinks(body, section.links || [])
+    if (Array.isArray(section.groups) && section.groups.length) {
+      var map = node("div", "app-mind-map")
+      section.groups.forEach(function (group) {
+        var branch = node("section", "app-mind-map__branch")
+        branch.appendChild(node("h3", "t-label", group.title))
+        appendPrepLinks(branch, group.links || [])
+        map.appendChild(branch)
+      })
+      body.appendChild(map)
+    }
+    return body
+  }
+
+  function appendPrepLinks(parent, links) {
+    if (!Array.isArray(links) || !links.length) return
+    var list = node("div", "app-prep-links")
+    links.forEach(function (item) {
+      var link = node("a", "app-prep-link t-label", item.title + " ↗")
+      link.href = lessonHref(item.path)
+      link.title = item.path
+      if (!isLocalSite()) {
+        link.target = "_blank"
+        link.rel = "noopener noreferrer"
+      }
+      list.appendChild(link)
+    })
+    parent.appendChild(list)
   }
 
   function mcModePage() {
@@ -221,45 +339,52 @@
     var grid = node("div", "app-grid app-grid--three")
     grid.appendChild(moduleCard(
       "直接学习",
-      mcQuestions.length + " 道题目",
+      viewedCount("study") + " / " + mcQuestions.length,
       "进入直接学习",
-      function () { go("#/mc/study") }
+      function () { go("#/mc/study") },
+      { done: viewedCount("study"), total: mcQuestions.length }
     ))
     grid.appendChild(moduleCard(
       "自己作答：顺序版",
       progressText("sequential"),
       "进入顺序作答",
-      function () { go("#/mc/sequential") }
+      function () { go("#/mc/sequential") },
+      mcProgress("sequential")
     ))
     grid.appendChild(moduleCard(
       "自己作答：随机版",
       progressText("random"),
       "进入随机作答",
-      function () { go("#/mc/random") }
+      function () { go("#/mc/random") },
+      mcProgress("random")
     ))
     grid.appendChild(moduleCard(
       "错题集",
       wrongQuestions().length + " 道错题 · 累计错 " + totalWrongAttempts() + " 次",
       "进入错题集",
-      function () { go("#/mc/wrong") }
+      function () { go("#/mc/wrong") },
+      mcProgress("wrong")
     ))
     app.appendChild(grid)
-    var resetActions = node("div", "rv-actions app-reset-actions")
-    resetActions.appendChild(button("清除作答记录", "rv-btn rv-btn--secondary t-label", function () {
-      if (!window.confirm("清除所有选择题作答记录并重新练习，错题次数会保留")) return
-      resetAllMcPractice()
-      mcModePage()
-    }))
-    app.appendChild(resetActions)
   }
 
   function progressText(mode) {
-    var done = mcQuestions.filter(function (question) {
-      return Boolean(state.checked[checkedKey(question, mode)])
-    }).length
+    var done = mcDoneCount(mode)
     return mode === "sequential" || mode === "random"
       ? "已核对 " + done + " / " + mcQuestions.length
       : mcQuestions.length + " 道题目"
+  }
+
+  function mcDoneCount(mode) {
+    var questions = mode === "wrong" ? wrongQuestions() : mcQuestions
+    return questions.filter(function (question) {
+      return Boolean(state.checked[checkedKey(question, mode)])
+    }).length
+  }
+
+  function mcProgress(mode) {
+    var total = mode === "wrong" ? wrongQuestions().length : mcQuestions.length
+    return { done: mcDoneCount(mode), total: total }
   }
 
   function totalWrongAttempts() {
@@ -268,14 +393,15 @@
     }, 0)
   }
 
-  function resetAllMcPractice() {
-    state.selected = {}
-    state.checked = {}
-    state.mcIndex.study = 0
-    state.mcIndex.sequential = 0
-    state.mcIndex.random = 0
-    state.mcIndex.wrong = 0
-    state.mcRandomIds = []
+  function resetMcMode(mode) {
+    Object.keys(state.selected).forEach(function (key) {
+      if (key.indexOf(mode + "::") === 0) delete state.selected[key]
+    })
+    Object.keys(state.checked).forEach(function (key) {
+      if (key.indexOf(mode + "::") === 0) delete state.checked[key]
+    })
+    state.mcIndex[mode] = 0
+    if (mode === "random") state.mcRandomIds = shuffle(mcQuestions.map(function (question) { return question.id }))
     saveState()
   }
 
@@ -339,6 +465,7 @@
 
     var currentIndex = clampIndex(state.mcIndex[mode], questions.length)
     state.mcIndex[mode] = currentIndex
+    if (mode === "study") markViewed("study", questions[currentIndex].id)
     var toolbar = node("div", "app-toolbar")
     toolbar.appendChild(questionJump(questions, currentIndex, function (value) {
       state.mcIndex[mode] = value
@@ -351,6 +478,13 @@
         state.mcRandomIds = shuffle(mcQuestions.map(function (question) { return question.id }))
         state.mcIndex.random = 0
         saveState()
+        mcPage(mode)
+      }))
+    }
+    if (mode === "sequential" || mode === "random") {
+      toolbar.appendChild(button("清除作答记录", "rv-btn rv-btn--secondary t-label", function () {
+        if (!window.confirm("清除当前模式的作答记录，错题次数会保留")) return
+        resetMcMode(mode)
         mcPage(mode)
       }))
     }
@@ -414,7 +548,6 @@
     var card = node("article", "rv-card")
     card.appendChild(node("p", "app-position t-meta", (index + 1) + " / " + total))
     card.appendChild(renderLessonLink(question))
-    card.appendChild(node("p", "rv-card__source t-meta", questionMeta(question)))
     var wrongCount = Number(state.mcWrongCounts[question.id]) || 0
     if (wrongCount > 0) card.appendChild(node("p", "app-wrong-count t-meta", "累计答错 " + wrongCount + " 次"))
     card.appendChild(node("p", "rv-card__stem t-question", question.stem || ""))
@@ -638,6 +771,10 @@
 
     var currentIndex = clampIndex(state[stateKey], questions.length)
     state[stateKey] = currentIndex
+    var viewedKey = stateKey === "fillIndex"
+      ? "fill"
+      : (stateKey === "comprehensiveIndex" ? "comprehensive" : "textbook")
+    markViewed(viewedKey, questions[currentIndex].id || String(currentIndex))
     var toolbar = node("div", "app-toolbar")
     toolbar.appendChild(questionJump(questions, currentIndex, function (value) {
       state[stateKey] = value
@@ -753,7 +890,6 @@
     var card = node("article", "rv-card")
     card.appendChild(node("p", "app-position t-meta", (index + 1) + " / " + total))
     card.appendChild(renderLessonLink(question))
-    card.appendChild(node("p", "rv-card__source t-meta", questionMeta(question)))
     card.appendChild(node("p", "rv-card__stem t-question", question.stem || question.question || ""))
     return card
   }
@@ -778,8 +914,12 @@
     }
     links.forEach(function (item) {
       var link = node("a", "app-lesson__link t-label", (item.title || "对应知识点") + " ↗")
-      link.href = obsidianHref(item.path)
+      link.href = lessonHref(item.path)
       link.title = item.path
+      if (!isLocalSite()) {
+        link.target = "_blank"
+        link.rel = "noopener noreferrer"
+      }
       wrap.appendChild(link)
     })
     return wrap
@@ -851,6 +991,20 @@
     }
 
     return "obsidian://open?path=" + encodeURIComponent(path)
+  }
+
+  function isLocalSite() {
+    return window.location.protocol === "file:"
+      || window.location.hostname === "localhost"
+      || window.location.hostname === "127.0.0.1"
+  }
+
+  function lessonHref(path) {
+    if (isLocalSite()) return obsidianHref(path)
+    var repositoryPath = materialLinks[path]
+    if (!repositoryPath) return "#"
+    var encodedPath = repositoryPath.split("/").map(encodeURIComponent).join("/")
+    return "https://github.com/iStarrySummer/design-pattern-review/blob/main/" + encodedPath
   }
 
   function renderMaterials(question) {
@@ -1125,7 +1279,8 @@
       loginPage()
       return
     }
-    if (hash === "#/mc") mcModePage()
+    if (hash === "#/prep") prepPage()
+    else if (hash === "#/mc") mcModePage()
     else if (hash === "#/mc/study") mcPage("study")
     else if (hash === "#/mc/sequential") mcPage("sequential")
     else if (hash === "#/mc/random") mcPage("random")
