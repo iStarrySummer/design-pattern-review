@@ -20,6 +20,7 @@ window.REVIEW_MATERIAL_LINKS = {
   "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/design-pattern-books-master/docs/177448.md": "materials/design-pattern-books-master/docs/177448.md",
   "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/design-pattern-books-master/docs/179607.md": "materials/design-pattern-books-master/docs/179607.md",
   "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/design-pattern-books-master/docs/179615.md": "materials/design-pattern-books-master/docs/179615.md",
+  "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/design-pattern-books-master/docs/197254.md": "materials/design-pattern-books-master/docs/197254.md",
   "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/00-关于UML.md": "materials/illustrated-design-patterns/docs/00-关于UML.md",
   "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/01-Iterator模式.md": "materials/illustrated-design-patterns/docs/01-Iterator模式.md",
   "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/02-Adapter模式.md": "materials/illustrated-design-patterns/docs/02-Adapter模式.md",

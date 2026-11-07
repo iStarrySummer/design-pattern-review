@@ -1171,8 +1171,8 @@ window.REVIEW_MULTIPLE_CHOICE = [
         "source": "A-常用设计模式的定义及结构图.md 第13行"
       }
     ],
-    "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/04-FactoryMethod模式.md",
-    "lessonTitle": "04-FactoryMethod模式.md"
+    "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/design-pattern-books-master/docs/197254.md",
+    "lessonTitle": "44-工厂模式（上）.md"
   },
   {
     "id": "E2-MC-05",
@@ -1217,8 +1217,8 @@ window.REVIEW_MULTIPLE_CHOICE = [
         "source": "197254.md 第160行"
       }
     ],
-    "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/04-FactoryMethod模式.md",
-    "lessonTitle": "04-FactoryMethod模式.md"
+    "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/design-pattern-books-master/docs/197254.md",
+    "lessonTitle": "44-工厂模式（上）.md"
   },
   {
     "id": "E2-MC-06",
@@ -1264,8 +1264,8 @@ window.REVIEW_MULTIPLE_CHOICE = [
         "source": "197254.md 第389行"
       }
     ],
-    "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/04-FactoryMethod模式.md",
-    "lessonTitle": "04-FactoryMethod模式.md"
+    "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/design-pattern-books-master/docs/197254.md",
+    "lessonTitle": "44-工厂模式（上）.md"
   },
   {
     "id": "E2-MC-07",
@@ -1316,8 +1316,8 @@ window.REVIEW_MULTIPLE_CHOICE = [
         "source": "A-常用设计模式的定义及结构图.md 第13行"
       }
     ],
-    "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/04-FactoryMethod模式.md",
-    "lessonTitle": "04-FactoryMethod模式.md"
+    "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/design-pattern-books-master/docs/197254.md",
+    "lessonTitle": "44-工厂模式（上）.md"
   },
   {
     "id": "E2-MC-08",
@@ -1688,8 +1688,8 @@ window.REVIEW_MULTIPLE_CHOICE = [
         "source": "08-AbstractFactory模式.md 第698行"
       }
     ],
-    "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/04-FactoryMethod模式.md",
-    "lessonTitle": "04-FactoryMethod模式.md"
+    "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/design-pattern-books-master/docs/197254.md",
+    "lessonTitle": "44-工厂模式（上）.md"
   },
   {
     "id": "E2-MC-15",
@@ -2334,8 +2334,8 @@ window.REVIEW_MULTIPLE_CHOICE = [
         "source": "197254.md 第389行"
       }
     ],
-    "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/04-FactoryMethod模式.md",
-    "lessonTitle": "04-FactoryMethod模式.md"
+    "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/design-pattern-books-master/docs/197254.md",
+    "lessonTitle": "44-工厂模式（上）.md"
   },
   {
     "id": "E2-MC-29",

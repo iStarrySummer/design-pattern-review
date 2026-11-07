@@ -410,7 +410,7 @@ window.REVIEW_WRITTEN = [
         "source": "A-常用设计模式的定义及结构图.md 第13行"
       }
     ],
-    "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/04-FactoryMethod模式.md"
+    "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/design-pattern-books-master/docs/197254.md"
   },
   {
     "id": "E2-FILL-02",
@@ -1063,7 +1063,7 @@ window.REVIEW_WRITTEN = [
         "source": "07-2-创建型设计模式-参考答案及习题解析.md 第63行"
       }
     ],
-    "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/图解设计模式/docs/04-FactoryMethod模式.md"
+    "lessonPath": "/Users/a1/Desktop/projects/课程/设计模式 1.5/资料/design-pattern-books-master/docs/197254.md"
   },
   {
     "id": "E2-COMP-02",
